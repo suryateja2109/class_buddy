@@ -1,0 +1,314 @@
+{
+    "2025-10-06": {
+        "Monday__0__Full Stack development -I (FSD)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Present",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Monday__1__Introduction to Quantum Technologies and Applications(IQTA)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Present",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Present",
+            "23091a3280": "Absent",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Monday__2__Entrepreneurship and New Venture Creation(E&VC)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Present",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Absent",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        },
+        "Monday__3__Machine Learning (ML)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Present",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        },
+        "Monday__4__Operating Systems(OS)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Present",
+            "23091a32h6": "Present",
+            "23091a32d6": "Present",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Monday__5__physics": {
+            "23091a32g1": "Absent",
+            "23091a32g2": "Present",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Absent",
+            "23091a32b8": "Present",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        },
+        "Monday__6__chemistry": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Absent",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        }
+    },
+    "2025-10-07": {
+        "Tuesday__0__Machine Learning Lab (ML LAB)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Present",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        },
+        "Tuesday__1__Operating Systems Lab(OS Lab)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Present",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Tuesday__2__MOOCS/COUNC/SEM": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Tuesday__3__Introduction to Quantum Technologies and Applications(IQTA)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Present",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Present",
+            "23091a3280": "Absent",
+            "23091a32b8": "Present",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        }
+    },
+    "2025-10-08": {
+        "Wednesday__0__Software Engineering(SE)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Present",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Present",
+            "23091a3280": "Present",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Wednesday__1__Full Stack development -I (FSD)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Absent",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Wednesday__2__MOOCS/COUNC/SEM": {
+            "23091a32g1": "Absent",
+            "23091a32g2": "Present",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        }
+    },
+    "2025-10-02": {
+        "Thursday__0__Operating Systems(OS)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Present",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Thursday__1__Tinkering Lab": {
+            "23091a32g1": "Absent",
+            "23091a32g2": "Present",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Absent",
+            "23091a32b8": "Present",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        },
+        "Thursday__2__Machine Learning (ML)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Present",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Thursday__3__MOOCS/COUNC/SEM": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Present",
+            "23091a32h6": "Present",
+            "23091a32d6": "Present",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        }
+    },
+    "2025-10-03": {
+        "Friday__0__Entrepreneurship and New Venture Creation(E&VC)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Present",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        },
+        "Friday__1__Machine Learning Lab (ML LAB)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Present",
+            "23091a3280": "Absent",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Absent"
+        },
+        "Friday__2__LIB": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Present",
+            "23091a3280": "Absent",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Friday__3__Software Engineering(SE)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Present",
+            "23091a3280": "Absent",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        }
+    },
+    "2025-10-04": {
+        "Saturday__0__Introduction to Quantum Technologies and Applications(IQTA)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Absent",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Saturday__1__CA": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Present",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Saturday__2__Operating Systems(OS)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Absent",
+            "23091a32h6": "Present",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Present",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        },
+        "Saturday__3__Machine Learning (ML)": {
+            "23091a32g1": "Present",
+            "23091a32g2": "Absent",
+            "23091a32h3": "Present",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Absent",
+            "23091a3280": "Present",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Present",
+            "23091a32g3": "Absent"
+        }
+    },
+    "2025-10-24": {
+        "Friday__0__Entrepreneurship and New Venture Creation(E&VC)": {
+            "23091a32h3": "Present",
+            "23091a32h6": "Absent",
+            "23091a32d6": "Present",
+            "23091a3280": "Absent",
+            "23091a32b8": "Absent",
+            "23091a32g0": "Absent",
+            "23091a32g3": "Present",
+            "23091a32e3": "Absent",
+            "23091a32jo": "Absent",
+            "23091a32j2": "Absent"
+        }
+    }
+}

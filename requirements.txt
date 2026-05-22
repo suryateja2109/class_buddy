@@ -1,0 +1,6 @@
+streamlit
+pandas
+schedule
+# Add other modules your existing code relies on, e.g.:
+# numpy
+# scikit-learn
