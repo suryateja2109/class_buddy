@@ -3,8 +3,12 @@
 import streamlit as st
 import pandas as pd
 from datetime import time
-from helpers import card_start, card_end, display_status_message, build_classes_list
-from logic import update_class, delete_class, save_class
+try:
+    from frontend.helpers import card_start, card_end, display_status_message, build_classes_list
+    from backend.logic import update_class, delete_class, save_class
+except (ImportError, ModuleNotFoundError):
+    from helpers import card_start, card_end, display_status_message, build_classes_list
+    from logic import update_class, delete_class, save_class
 
 
 def class_management_view(schedule):

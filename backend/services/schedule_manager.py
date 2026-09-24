@@ -4,7 +4,13 @@ import json
 import os
 from datetime import datetime, time
 
-SCHEDULE_FILE = "data/schedule.json"
+from pathlib import Path
+
+try:
+    from backend.config import SCHEDULE_FILE
+except (ImportError, ModuleNotFoundError):
+    DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+    SCHEDULE_FILE = str(DATA_DIR / "schedule.json")
 
 
 def load_schedule():

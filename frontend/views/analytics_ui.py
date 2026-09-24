@@ -4,9 +4,14 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from modules.student_manager import load_students
-from modules.schedule_manager import load_schedule
-from modules.attendance_logger import load_attendance
+try:
+    from backend.services.student_manager import load_students
+    from backend.services.schedule_manager import load_schedule
+    from backend.services.attendance_logger import load_attendance
+except (ImportError, ModuleNotFoundError):
+    from services.student_manager import load_students
+    from services.schedule_manager import load_schedule
+    from services.attendance_logger import load_attendance
 
 
 def compute_student_analytics(student_roll, all_subjects, attendance_data):

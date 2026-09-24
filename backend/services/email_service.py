@@ -7,11 +7,22 @@ import os
 import ssl
 import html
 
+from pathlib import Path
+
 try:
+    from backend.config import ROOT_DIR
+    env_file = ROOT_DIR / ".env"
     from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
+    if env_file.exists():
+        load_dotenv(dotenv_path=env_file)
+    else:
+        load_dotenv()
+except Exception:
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
 
 # --- CONFIGURATION (LOADED SECURELY VIA ENVIRONMENT / .ENV) ---
 SMTP_SERVER = os.environ.get("SMTP_SERVER", "smtp.gmail.com")

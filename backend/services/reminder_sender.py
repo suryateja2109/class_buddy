@@ -3,8 +3,12 @@
 # Note: The actual sending mock is in email_service.py. 
 # This module acts as a bridge/utility layer.
 
-from .email_service import send_manual_reminder
-from .student_manager import load_students
+try:
+    from backend.services.email_service import send_manual_reminder
+    from backend.services.student_manager import load_students
+except (ImportError, ModuleNotFoundError):
+    from .email_service import send_manual_reminder
+    from .student_manager import load_students
 
 def send_manual_reminder_util(roll_no, subject, message):
     """Fetches student data and sends a manual reminder via the email service."""

@@ -4,15 +4,26 @@ import streamlit as st
 import pandas as pd
 
 # Import only necessary helper and logic functions
-from helpers import card_start, card_end
-from logic import (
-    load_notification_log,
-    load_temp_predictions,
-    clear_temp_predictions,
-    send_reminder,
-)
-from modules.schedule_manager import load_schedule
-from modules.student_manager import load_students
+try:
+    from frontend.helpers import card_start, card_end
+    from backend.logic import (
+        load_notification_log,
+        load_temp_predictions,
+        clear_temp_predictions,
+        send_reminder,
+    )
+    from backend.services.schedule_manager import load_schedule
+    from backend.services.student_manager import load_students
+except (ImportError, ModuleNotFoundError):
+    from helpers import card_start, card_end
+    from logic import (
+        load_notification_log,
+        load_temp_predictions,
+        clear_temp_predictions,
+        send_reminder,
+    )
+    from services.schedule_manager import load_schedule
+    from services.student_manager import load_students
 
 
 def email_dashboard_view(students, schedule):

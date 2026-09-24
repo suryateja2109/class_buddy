@@ -5,28 +5,41 @@ import json
 import os
 from datetime import datetime, date, time, timedelta
 
-# Import modules from your existing 'modules' directory
-from modules.student_manager import (
-    add_student,
-    update_student as real_update_student,
-    delete_student as real_delete_student,
-)
-from modules.schedule_manager import (
-    add_class,
-    update_class as real_update_class,
-    delete_class as real_delete_class,
-)
-from modules.email_service import send_absence_alert
-from modules import miss_predictor
-from modules.attendance_logger import get_attendance_for_day, mark_attendance
-
-# --- NEW IMPORT ---
-from modules.reminder_sender import send_manual_reminder_util
-
-
-# --- PERSISTENT LOG FILES ---
-NOTIFICATION_LOG_FILE = "data/notification_log.json"
-TEMP_PREDICTIONS_FILE = "data/temp_predictions.json"
+try:
+    from backend.services.student_manager import (
+        add_student,
+        update_student as real_update_student,
+        delete_student as real_delete_student,
+    )
+    from backend.services.schedule_manager import (
+        add_class,
+        update_class as real_update_class,
+        delete_class as real_delete_class,
+    )
+    from backend.services.email_service import send_absence_alert
+    from backend.services import miss_predictor
+    from backend.services.attendance_logger import get_attendance_for_day, mark_attendance
+    from backend.services.reminder_sender import send_manual_reminder_util
+    from backend.config import NOTIFICATION_LOG_FILE, TEMP_PREDICTIONS_FILE
+except (ImportError, ModuleNotFoundError):
+    from services.student_manager import (
+        add_student,
+        update_student as real_update_student,
+        delete_student as real_delete_student,
+    )
+    from services.schedule_manager import (
+        add_class,
+        update_class as real_update_class,
+        delete_class as real_delete_class,
+    )
+    from services.email_service import send_absence_alert
+    import services.miss_predictor as miss_predictor
+    from services.attendance_logger import get_attendance_for_day, mark_attendance
+    from services.reminder_sender import send_manual_reminder_util
+    from pathlib import Path
+    DATA_DIR = Path(__file__).resolve().parent / "data"
+    NOTIFICATION_LOG_FILE = str(DATA_DIR / "notification_log.json")
+    TEMP_PREDICTIONS_FILE = str(DATA_DIR / "temp_predictions.json")
 
 
 def load_notification_log():

@@ -3,8 +3,13 @@
 import json
 import os
 
-# Define the file path for persistence
-STUDENT_FILE = "data/students.json"
+from pathlib import Path
+
+try:
+    from backend.config import STUDENT_FILE
+except (ImportError, ModuleNotFoundError):
+    DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+    STUDENT_FILE = str(DATA_DIR / "students.json")
 
 
 def load_students():

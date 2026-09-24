@@ -1,9 +1,15 @@
 import streamlit as st
 from datetime import date
-from helpers import card_start, card_end
-from modules import miss_predictor
-from modules.student_manager import load_students
-from modules.schedule_manager import load_schedule
+try:
+    from frontend.helpers import card_start, card_end
+    from backend.services import miss_predictor
+    from backend.services.student_manager import load_students
+    from backend.services.schedule_manager import load_schedule
+except (ImportError, ModuleNotFoundError):
+    from helpers import card_start, card_end
+    import services.miss_predictor as miss_predictor
+    from services.student_manager import load_students
+    from services.schedule_manager import load_schedule
 
 
 def miss_predictor_view(students_list, schedule_data):

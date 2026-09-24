@@ -1,25 +1,50 @@
-# File: background_scheduler.py (FINAL - Constant Resend Logic)
+# File: backend/background_scheduler.py
+
+import sys
+from pathlib import Path
+
+# Ensure root directory and backend directory are in sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent
+BACKEND_DIR = Path(__file__).resolve().parent
+
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
 
 import time
 import schedule
 from datetime import datetime, date, timedelta
 import os
 
-# Import necessary core modules (Scheduler needs access to data)
-from modules.student_manager import load_students
-from modules.schedule_manager import load_schedule
-from modules.email_service import send_absence_alert
-from modules import miss_predictor
-
-# Import the persistent logging functions, including the checker function
-# NOTE: has_alert_been_logged is REMOVED from the import list.
-from logic import (
-    log_notification,
-    load_temp_predictions,
-    save_temp_predictions,
-    clear_temp_predictions,
-    clean_old_notifications,
-)
+try:
+    from backend.services.student_manager import load_students
+    from backend.services.schedule_manager import load_schedule
+    from backend.services.email_service import send_absence_alert
+    from backend.services import miss_predictor
+    from backend.logic import (
+        log_notification,
+        load_temp_predictions,
+        save_temp_predictions,
+        clear_temp_predictions,
+        clean_old_notifications,
+    )
+    from backend.config import STUDENT_FILE, SCHEDULE_FILE
+except (ImportError, ModuleNotFoundError):
+    from services.student_manager import load_students
+    from services.schedule_manager import load_schedule
+    from services.email_service import send_absence_alert
+    import services.miss_predictor as miss_predictor
+    from logic import (
+        log_notification,
+        load_temp_predictions,
+        save_temp_predictions,
+        clear_temp_predictions,
+        clean_old_notifications,
+    )
+    DATA_DIR = Path(__file__).resolve().parent / "data"
+    STUDENT_FILE = str(DATA_DIR / "students.json")
+    SCHEDULE_FILE = str(DATA_DIR / "schedule.json")
 
 
 def run_prediction_and_alert():
@@ -32,9 +57,7 @@ def run_prediction_and_alert():
     # ---------------------------------------------------
 
     # Ensure data files exist before loading
-    if not os.path.exists("data/students.json") or not os.path.exists(
-        "data/schedule.json"
-    ):
+    if not os.path.exists(STUDENT_FILE) or not os.path.exists(SCHEDULE_FILE):
         print("Data files not found. Skipping prediction run.")
         clear_temp_predictions()
         return 0

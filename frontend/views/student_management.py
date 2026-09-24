@@ -1,13 +1,23 @@
 import streamlit as st
 import pandas as pd
-from helpers import (
-    card_start,
-    card_end,
-    display_status_message,
-    validate_mobile,
-    validate_email,
-)
-from logic import save_student, update_student, delete_student
+try:
+    from frontend.helpers import (
+        card_start,
+        card_end,
+        display_status_message,
+        validate_mobile,
+        validate_email,
+    )
+    from backend.logic import save_student, update_student, delete_student
+except (ImportError, ModuleNotFoundError):
+    from helpers import (
+        card_start,
+        card_end,
+        display_status_message,
+        validate_mobile,
+        validate_email,
+    )
+    from logic import save_student, update_student, delete_student
 
 
 def student_management_view(students):

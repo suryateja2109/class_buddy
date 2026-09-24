@@ -3,7 +3,10 @@
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder
-from modules.attendance_logger import load_attendance
+try:
+    from backend.services.attendance_logger import load_attendance
+except (ImportError, ModuleNotFoundError):
+    from .attendance_logger import load_attendance
 
 # Global model and encoder caches
 _RANDOM_FOREST_MODEL = None

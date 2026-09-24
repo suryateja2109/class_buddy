@@ -1,10 +1,14 @@
 # File: views/analytics.py
 
-import streamlit as st
-from helpers import card_start, card_end
-
-# Correct import path for the function defined in the modules folder
-from modules.analytics_ui import calculate_and_display_analytics
+try:
+    from frontend.helpers import card_start, card_end
+    from frontend.views.analytics_ui import calculate_and_display_analytics
+except (ImportError, ModuleNotFoundError):
+    from helpers import card_start, card_end
+    try:
+        from .analytics_ui import calculate_and_display_analytics
+    except ImportError:
+        from views.analytics_ui import calculate_and_display_analytics
 
 
 def analytics_view():

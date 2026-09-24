@@ -2,10 +2,16 @@
 import streamlit as st
 import pandas as pd
 from datetime import date
-from helpers import card_start, card_end, build_classes_list
-from modules.student_manager import load_students
-from modules.schedule_manager import load_schedule
-from modules.attendance_logger import get_attendance_for_day
+try:
+    from frontend.helpers import card_start, card_end, build_classes_list
+    from backend.services.student_manager import load_students
+    from backend.services.schedule_manager import load_schedule
+    from backend.services.attendance_logger import get_attendance_for_day
+except (ImportError, ModuleNotFoundError):
+    from helpers import card_start, card_end, build_classes_list
+    from services.student_manager import load_students
+    from services.schedule_manager import load_schedule
+    from services.attendance_logger import get_attendance_for_day
 
 def attendance_viewer_view():
     card_start("📅 View Attendance")

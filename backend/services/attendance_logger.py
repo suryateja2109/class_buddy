@@ -3,7 +3,13 @@
 import json
 import os
 
-ATTENDANCE_FILE = "data/attendance.json"
+from pathlib import Path
+
+try:
+    from backend.config import ATTENDANCE_FILE
+except (ImportError, ModuleNotFoundError):
+    DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+    ATTENDANCE_FILE = str(DATA_DIR / "attendance.json")
 
 
 def load_attendance():

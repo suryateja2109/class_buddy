@@ -1,8 +1,12 @@
 import streamlit as st
 import pandas as pd
 from datetime import date
-from helpers import card_start, card_end, build_classes_list
-from modules.attendance_logger import get_attendance_for_day, save_class_attendance
+try:
+    from frontend.helpers import card_start, card_end, build_classes_list
+    from backend.services.attendance_logger import get_attendance_for_day, save_class_attendance
+except (ImportError, ModuleNotFoundError):
+    from helpers import card_start, card_end, build_classes_list
+    from services.attendance_logger import get_attendance_for_day, save_class_attendance
 
 
 def attendance_logger_view(students, schedule_data):

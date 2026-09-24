@@ -1,27 +1,64 @@
+import sys
+from pathlib import Path
+
+# Add project root and frontend to sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = Path(__file__).resolve().parent
+
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+if str(FRONTEND_DIR) not in sys.path:
+    sys.path.insert(0, str(FRONTEND_DIR))
+
 import streamlit as st
 from datetime import date, datetime
 import random
 
-# Import modules from your existing structure
-from modules.student_manager import load_students
-from modules.schedule_manager import load_schedule
-from modules.attendance_logger import get_attendance_for_day, load_attendance
+# Backend service imports
+try:
+    from backend.services.student_manager import load_students
+    from backend.services.schedule_manager import load_schedule
+    from backend.services.attendance_logger import get_attendance_for_day, load_attendance
+    from backend.logic import load_notification_log, load_temp_predictions
+except (ImportError, ModuleNotFoundError):
+    from services.student_manager import load_students
+    from services.schedule_manager import load_schedule
+    from services.attendance_logger import get_attendance_for_day, load_attendance
+    from logic import load_notification_log, load_temp_predictions
 
-# Import the new segregated files
-from helpers import apply_styling, card_start, card_end
-from logic import load_notification_log, load_temp_predictions
-
-# Import View functions from the 'views' directory
-from views.student_management import student_management_view
-from views.class_management import class_management_view
-from views.attendance_logger import attendance_logger_view
-from views.attendance_viewer import attendance_viewer_view
-from views.miss_predictor import miss_predictor_view
-from views.email_dashboard import email_dashboard_view  # Assumes the fixed file is here
-from views.analytics import analytics_view
-from helpers import display_status_message
-from helpers import build_classes_list
-from helpers import ACCENT_TEAL
+# Frontend helpers & views
+try:
+    from frontend.helpers import (
+        apply_styling,
+        card_start,
+        card_end,
+        display_status_message,
+        build_classes_list,
+        ACCENT_TEAL,
+    )
+    from frontend.views.student_management import student_management_view
+    from frontend.views.class_management import class_management_view
+    from frontend.views.attendance_logger import attendance_logger_view
+    from frontend.views.attendance_viewer import attendance_viewer_view
+    from frontend.views.miss_predictor import miss_predictor_view
+    from frontend.views.email_dashboard import email_dashboard_view
+    from frontend.views.analytics import analytics_view
+except (ImportError, ModuleNotFoundError):
+    from helpers import (
+        apply_styling,
+        card_start,
+        card_end,
+        display_status_message,
+        build_classes_list,
+        ACCENT_TEAL,
+    )
+    from views.student_management import student_management_view
+    from views.class_management import class_management_view
+    from views.attendance_logger import attendance_logger_view
+    from views.attendance_viewer import attendance_viewer_view
+    from views.miss_predictor import miss_predictor_view
+    from views.email_dashboard import email_dashboard_view
+    from views.analytics import analytics_view
 
 
 # ---------------------
