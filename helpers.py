@@ -173,7 +173,10 @@ def build_classes_list(schedule_dict):
 
 
 def validate_mobile(mobile):
-    if not re.match(r"^[6-9]\d{9}$", mobile.strip()):
+    cleaned = re.sub(r"[\s\-\(\)\+]", "", mobile.strip())
+    if cleaned.startswith("91") and len(cleaned) == 12:
+        cleaned = cleaned[2:]
+    if not re.match(r"^[6-9]\d{9}$", cleaned):
         return (
             "⚠ Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9."
         )
@@ -181,7 +184,9 @@ def validate_mobile(mobile):
 
 
 def validate_email(email):
-    email_pattern = r"[^@]+@(gmail\.com|rgmcet\.edu\.in)$"
-    if not re.match(email_pattern, email.strip()):
-        return "⚠ Email must be @gmail.com or @rgmcet.edu.in."
+    email_clean = email.strip()
+    email_pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+    if not re.match(email_pattern, email_clean):
+        return "⚠ Please enter a valid email address (e.g., student@rgmcet.edu.in or user@gmail.com)."
     return None
+

@@ -148,17 +148,23 @@ def run_prediction_and_alert():
 # SCHEDULER EXECUTION
 # ---------------------
 
-schedule.every(1).minute.do(run_prediction_and_alert)
-print("Background scheduler started. Checking for alerts every minute...")
+def start_scheduler():
+    schedule.every(1).minute.do(run_prediction_and_alert)
+    print("Background scheduler started. Checking for alerts every minute...")
 
-while True:
-    try:
-        schedule.run_pending()
-        time.sleep(1)
-    except KeyboardInterrupt:
-        print("Scheduler stopped by user.")
-        clear_temp_predictions()
-        break
-    except Exception as e:
-        print(f"An error occurred in the scheduler loop: {e}")
-        time.sleep(60)
+    while True:
+        try:
+            schedule.run_pending()
+            time.sleep(1)
+        except KeyboardInterrupt:
+            print("Scheduler stopped by user.")
+            clear_temp_predictions()
+            break
+        except Exception as e:
+            print(f"An error occurred in the scheduler loop: {e}")
+            time.sleep(60)
+
+
+if __name__ == "__main__":
+    start_scheduler()
+

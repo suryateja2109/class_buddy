@@ -5,7 +5,7 @@ import random
 # Import modules from your existing structure
 from modules.student_manager import load_students
 from modules.schedule_manager import load_schedule
-from modules.attendance_logger import get_attendance_for_day
+from modules.attendance_logger import get_attendance_for_day, load_attendance
 
 # Import the new segregated files
 from helpers import apply_styling, card_start, card_end
@@ -61,15 +61,31 @@ schedule = load_schedule()
 # GLOBAL METRICS CALCULATION AND HOME VIEW LOGIC
 # ---------------------
 def calculate_global_metrics(students, schedule):
-    """Calculates KPIs for the right-hand dashboard card."""
-    overall_attendance_rate = 88.5 + random.uniform(-1.0, 1.0)
+    """Calculates KPIs for the global metrics card using genuine data."""
+    attendance_data = load_attendance()
+    total_present = 0
+    total_records = 0
+    if isinstance(attendance_data, dict):
+        for classes in attendance_data.values():
+            if isinstance(classes, dict):
+                for roll_dict in classes.values():
+                    if isinstance(roll_dict, dict):
+                        for status in roll_dict.values():
+                            total_records += 1
+                            if status == "Present":
+                                total_present += 1
+
+    overall_attendance_rate = (
+        round((total_present / total_records) * 100, 1) if total_records > 0 else 0.0
+    )
     live_predictions = load_temp_predictions()
     predicted_absences = len(live_predictions)
 
     return {
-        "Total_Students": len(students),
-        "Total_Classes_Today": len(schedule.get(datetime.today().strftime("%A"), [])),
-        "Attendance_Rate": round(overall_attendance_rate, 1),
+        "Total_Students": len(students) if isinstance(students, list) else 0,
+        "Total_Classes_Today": len(schedule.get(datetime.today().strftime("%A"), [])) if isinstance(schedule, dict) else 0,
+        "Attendance_Rate": overall_attendance_rate,
+        "Total_Attendance_Records": total_records,
         "Predicted_Absences": predicted_absences,
     }
 
@@ -115,10 +131,16 @@ def home_view(students, schedule):
     else:
         st.info(f"No classes scheduled for {today_day}.")
 
-    st.markdown(
-        f"<p style='margin-top: 15px; font-weight: bold; color: {ACCENT_TEAL};'>✅ Overall Attendance: {GLOBAL_METRICS['Attendance_Rate']}%</p>",
-        unsafe_allow_html=True,
-    )
+    if GLOBAL_METRICS["Total_Attendance_Records"] > 0:
+        st.markdown(
+            f"<p style='margin-top: 15px; font-weight: bold; color: {ACCENT_TEAL};'>✅ Overall Attendance: {GLOBAL_METRICS['Attendance_Rate']}%</p>",
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+            "<p style='margin-top: 15px; color: #888; font-size: 0.9em;'>ℹ️ No attendance records logged yet.</p>",
+            unsafe_allow_html=True,
+        )
 
     card_end()
 
@@ -128,7 +150,7 @@ def home_view(students, schedule):
     insight_cols = st.columns(2)
 
     with insight_cols[0]:
-        status_text = "None"
+        status_text = "No active absence alerts."
         status_color = "#bdc3c7"
         if GLOBAL_METRICS["Predicted_Absences"] > 0:
             status_text = f"Predicted Alert: {GLOBAL_METRICS['Predicted_Absences']} student(s) at risk!"
@@ -145,11 +167,20 @@ def home_view(students, schedule):
         )
 
     with insight_cols[1]:
+        if GLOBAL_METRICS["Total_Students"] == 0:
+            trend_text = "Add students and classes to begin tracking."
+        elif GLOBAL_METRICS["Total_Attendance_Records"] == 0:
+            trend_text = "Mark attendance to activate analytics & trends."
+        elif GLOBAL_METRICS["Attendance_Rate"] >= 75:
+            trend_text = f"Overall attendance is healthy at {GLOBAL_METRICS['Attendance_Rate']}%."
+        else:
+            trend_text = f"Attendance rate is {GLOBAL_METRICS['Attendance_Rate']}%. Follow up on absences."
+
         st.markdown(
             f"""
         <div class="insight-card">
             <p style='font-weight: bold; color: {ACCENT_TEAL};'>📈 Attendance Trend</p>
-            <p style='font-size: 0.85em; margin-top: 5px;'>Keep the streak! Overall attendance is strong.</p>
+            <p style='font-size: 0.85em; margin-top: 5px;'>{trend_text}</p>
         </div>
         """,
             unsafe_allow_html=True,
